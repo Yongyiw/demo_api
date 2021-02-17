@@ -22,7 +22,7 @@ $api = app(Router::class);
 $api->version('v1', function (Router $api) {
     $api->group(['prefix' => 'message'], function (Router $api) {
         $api->post('add',  'App\\Api\\V1\\Controllers\\MessageController@add');
-        $api->get('list',  'App\\Api\\V1\\Controllers\\MessageController@list');
+        $api->get('list',  'App\\Api\\V1\\Controllers\\MessageController@getAll');
         $api->post('check', 'App\\Api\\V1\\Controllers\\MessageController@check');
     });
 });

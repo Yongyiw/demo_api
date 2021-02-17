@@ -2,11 +2,11 @@
 
 ## APIs
 
-1) GET text/list
-2) POST text/add
-3) POST text/delete
-4) POST text/edit
-5) POST text/check
+1) GET message/list
+2) POST message/add
+3) POST message/delete
+4) POST message/edit
+5) POST message/check
 
 ## TO DOs
 
@@ -27,6 +27,11 @@ heroku addons:create jawsdb:kitefin -a string-checker-demo-api --version=8.0
 
 3. Run the Lavarel DB migration to test live DB connection and create the tables required
 
-heroku run /app/php/bin/php /app/www/artisan migrate
+heroku run php artisan migrate
+
+## Local environment
+https://hub.docker.com/r/mattrayner/lamp#introduction
+
+docker run  -i -t -p "80:80" -p 3306:3306 -v ${PWD}/demo_api:/app -v ${PWD}/demo_api/mysql:/var/lib/mysql  mattrayner/lamp:latest
 
 
