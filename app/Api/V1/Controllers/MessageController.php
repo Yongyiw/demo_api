@@ -68,7 +68,7 @@ class MessageController extends Controller
                 return false;
             }
         }
-        
+
         return true;
     }
 

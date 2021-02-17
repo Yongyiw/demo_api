@@ -37,4 +37,10 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function report(Throwable $e)
+    {
+        dd($e);
+        return parent::report($e);
+    }
 }
