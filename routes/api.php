@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use Dingo\Api\Routing\Router;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/** @var Router $api */
+$api = app(Router::class);
+
+$api->version('v1', function (Router $api) {
+    $api->group(['prefix' => 'message'], function (Router $api) {
+        $api->post('add',  'App\\Api\\V1\\Controllers\\MessageController@add');
+        $api->get('list',  'App\\Api\\V1\\Controllers\\MessageController@list');
+        $api->post('check', 'App\\Api\\V1\\Controllers\\MessageController@check');
+    });
 });

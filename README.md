@@ -25,6 +25,8 @@
 
 heroku addons:create jawsdb:kitefin -a string-checker-demo-api --version=8.0
 
-3. 
+3. Run the Lavarel DB migration to test live DB connection and create the tables required
+
+heroku run /app/php/bin/php /app/www/artisan migrate
 
 
