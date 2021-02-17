@@ -40,7 +40,7 @@
 
                 <div class="postman-run-button"
                      data-postman-action="collection/import"
-                     data-postman-var-1="30e564980203d9283578"></div>
+                     data-postman-var-1="367e9f6c42a46dd4a0aa"></div>
                 <script type="text/javascript">
                     (function (p,o,s,t,m,a,n) {
                         !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
@@ -50,7 +50,7 @@
                         ));
                     }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
                 </script>
-                
+
             </div>
         </div>
     </body>
