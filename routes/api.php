@@ -24,5 +24,7 @@ $api->version('v1', function (Router $api) {
         $api->post('add',  'App\\Api\\V1\\Controllers\\MessageController@add');
         $api->get('list',  'App\\Api\\V1\\Controllers\\MessageController@getAll');
         $api->post('check', 'App\\Api\\V1\\Controllers\\MessageController@check');
+        $api->delete('delete', 'App\\Api\\V1\\Controllers\\MessageController@delete');
+        $api->post('update', 'App\\Api\\V1\\Controllers\\MessageController@update');
     });
 });

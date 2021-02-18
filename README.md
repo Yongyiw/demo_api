@@ -1,19 +1,45 @@
 # demo_api
 
+## Credits
+
+1) Docker Image for local testing: https://hub.docker.com/r/mattrayner/lamp#introduction
+2) Laravel Starter Project via Heroku: https://devcenter.heroku.com/articles/getting-started-with-laravel
+3) MySQL provider on Heroku (KiteFin free plan) : https://elements.heroku.com/addons/jawsdb
+
+## Public URLs
+https://string-checker-demo-api.herokuapp.com/
+
 ## APIs
 
-1) GET message/list  done
-2) POST message/add  done
-3) POST message/delete
+1) GET message/list  
+
+2) POST message/add 
+
+'text': nullable | max:255 | string
+
+3) DELETE message/delete 
+
+'text': nullable | max:255 | string
+
 4) POST message/edit 
-5) POST message/check  done
+
+'text': nullable | max:255 | string
+'newText': nullable | max:255 | string
+
+5) POST message/check 
+
+'text': nullable | max:255 | string
+
+## Unit Tests
+
+php artisan test
 
 ## TO DOs
 
-1) Deploy the project to heroku
-2) Connect to MySQL database locally and remotely
-3) Implement APIs
-4) Design FE page
+1) Deploy the project to heroku done
+2) Connect to MySQL database locally and remotely done
+3) Implement APIs done
+4) Design FE page 
 5) User authentication
 
 ## Instructions

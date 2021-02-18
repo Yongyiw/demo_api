@@ -4,6 +4,7 @@ namespace App\Api\V1\Controllers;
 
 
 use App\Api\V1\Requests\MessageRequest;
+use App\Api\V1\Requests\UpdateMessageRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -35,17 +36,65 @@ class MessageController extends Controller
         return response()->json([
             'status' => 'ok',
             'payload' => $messages
-        ], 201);
+        ], 200);
     }
 
     public function check(MessageRequest $request)
     {
         $text = $request->get('text');
+
+        if (!$text) {
+            $text = ""; // @todo check ConvertEmptyStringsToNull
+        }
+
         return response()->json([
             'status' => 'ok',
             'result' => $this->isPanlindrome($text)
-        ], 201);
+        ], 200);
 
+    }
+
+    public function delete(MessageRequest $request)
+    {
+        $text = $request->get('text');
+        $message = Message::where('text', 'like', $text)
+                        ->first();
+
+        if (empty($message)) {
+            return response()->json([
+                'status' => 'ok'
+            ], 200);
+        }
+
+        if (!$message->delete()) {
+            throw new HttpException(500);
+        }
+
+        return response()->json([
+            'status' => 'ok'
+        ], 200);
+    }
+
+    public function update(UpdateMessageRequest $request)
+    {
+        $message = Message::where('text', 'like', $request->get('text'))
+                    ->first();
+
+        if (empty($message)) {
+            return response()->json([
+                'status' => 'ok'
+            ], 200);
+        }
+
+        $message->text = $request->get('newText');
+
+        if(!$message->save()) {
+            throw new HttpException(500);
+        }
+
+        return response()->json([
+            'status' => 'ok'
+        ], 200);
     }
 
     /**
