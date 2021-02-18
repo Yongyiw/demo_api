@@ -31,6 +31,16 @@ class MessageTest extends TestCase
         $response->assertStatus(201);
     }
 
+    public function test_delete_message()
+    {
+        $response = $this->delete('/api/message/delete', [
+            'text' => 'unitTestText'
+        ]);
+
+        $response->assertStatus(200);
+    }
+
+
     /**
      * @dataProvider panlindromeSet
      * @param $string

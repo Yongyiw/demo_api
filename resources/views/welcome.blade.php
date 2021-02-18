@@ -40,7 +40,7 @@
 
                 <div class="postman-run-button"
                      data-postman-action="collection/import"
-                     data-postman-var-1="367e9f6c42a46dd4a0aa"></div>
+                     data-postman-var-1="bf97ba52ea559b50836d"></div>
                 <script type="text/javascript">
                     (function (p,o,s,t,m,a,n) {
                         !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
