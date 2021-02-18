@@ -5,6 +5,7 @@ namespace App\Api\V1\Controllers;
 
 use App\Api\V1\Requests\MessageRequest;
 use App\Api\V1\Requests\UpdateMessageRequest;
+use App\Api\V1\Requests\GetMessageRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -19,6 +20,10 @@ class MessageController extends Controller
             'text' => $request->get('text'),
             'created_by' => self::ANONYMOUS_USER_ID
         ]);
+
+        // Check isPanlindrome;
+        $result = $this->isPanlindrome($message);
+        $message->isPanlidrome = $result;
 
         if(!$message->save()) {
             throw new HttpException(500);
@@ -39,20 +44,11 @@ class MessageController extends Controller
         ], 200);
     }
 
-    public function check(MessageRequest $request)
+    public function getById(GetMessageRequest $request)
     {
-        $text = $request->get('text');
-
-        if (!$text) {
-            $text = ""; // @todo check ConvertEmptyStringsToNull
-        }
-
-        return response()->json([
-            'status' => 'ok',
-            'result' => $this->isPanlindrome($text)
-        ], 200);
-
+        //@todo
     }
+
 
     public function delete(MessageRequest $request)
     {

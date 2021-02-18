@@ -21,10 +21,10 @@ $api = app(Router::class);
 
 $api->version('v1', function (Router $api) {
     $api->group(['prefix' => 'message'], function (Router $api) {
-        $api->post('add',  'App\\Api\\V1\\Controllers\\MessageController@add');
-        $api->get('list',  'App\\Api\\V1\\Controllers\\MessageController@getAll');
-        $api->post('check', 'App\\Api\\V1\\Controllers\\MessageController@check');
-        $api->delete('delete', 'App\\Api\\V1\\Controllers\\MessageController@delete');
-        $api->post('update', 'App\\Api\\V1\\Controllers\\MessageController@update');
+        $api->post('',  'App\\Api\\V1\\Controllers\\MessageController@add');
+        $api->get('',  'App\\Api\\V1\\Controllers\\MessageController@getAll');
+        $api->get('{id}', 'App\\Api\\V1\\Controllers\\MessageController@getById');
+        $api->delete('', 'App\\Api\\V1\\Controllers\\MessageController@delete');
+        $api->patch('', 'App\\Api\\V1\\Controllers\\MessageController@update');
     });
 });

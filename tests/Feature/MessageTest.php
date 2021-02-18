@@ -72,6 +72,7 @@ class MessageTest extends TestCase
             ['asdkfj;lasdjflasjdlfadsfl', false],
             ['whatisthattahtsitahw', true],
             ['sator arepo tenet opera rotas', true],
+            [121, true],
         ];
     }
 

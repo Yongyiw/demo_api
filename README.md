@@ -42,7 +42,7 @@ php artisan test
 4) Design FE page 
 5) User authentication
 
-## Instructions
+## Dev Notes
 
 1. Setup the git repo for lavarel example project on Heroku: https://devcenter.heroku.com/articles/getting-started-with-laravel
 
@@ -65,5 +65,14 @@ Exported Json file of PostMan requests collections
 
 LightSpeedDemoApi.postman_collection.json
 
+
+## Post updates
+
+1) Avoid using verb in api endpoint - let http method explain 
+2) Patch VS put - partial content update VS replacing whole object
+3) Using unique Id instead of text
+4) Remove check endpoint and add panlindrome check in add and update
+5) Make text unique column
+6) Refactor string check into its own service class
 
 
